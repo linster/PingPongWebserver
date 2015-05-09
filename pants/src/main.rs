@@ -1,5 +1,8 @@
 use std::net::{TcpListener, TcpStream};
 use std::thread;
+use listener::Listener;
+
+
 
 mod listener;
 
@@ -16,7 +19,7 @@ fn main() {
         match stream {
             Ok(stream) => {
                 thread::spawn(move|| {
-                        
+                     let listen = Listener::new(stream);   
                 });
             }
             Err(e) => {
