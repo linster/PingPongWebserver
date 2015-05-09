@@ -1,0 +1,12 @@
+[root]
+name = "pants"
+version = "0.1.0"
+dependencies = [
+ "threadpool 0.1.4 (git+https://github.com/rust-lang/threadpool.git)",
+]
+
+[[package]]
+name = "threadpool"
+version = "0.1.4"
+source = "git+https://github.com/rust-lang/threadpool.git#7cdd785fd99639ffc218759efd7a96ace60cd384"
+

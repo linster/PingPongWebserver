@@ -18,6 +18,10 @@ fn main() {
     
     //create output threads
 
+    
+    loop {
+        
+    }
 }
 
 fn print(i:u32){
