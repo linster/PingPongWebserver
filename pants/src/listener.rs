@@ -24,7 +24,7 @@ impl Listener {
         
         let mut term = str::Split(req_str, " ");
         
-        loop {
+        loop { //Works only if path isn't missing
             match term.next() {
                 "GET" => {self.reqType = "GET"},
                 path @ _ => {self.reqFile = path},
@@ -32,4 +32,6 @@ impl Listener {
             }
         }
     }
+    
+    
 }
