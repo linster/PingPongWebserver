@@ -1,8 +1,0 @@
-Typically I ran the servers from the their respective directories
-with the command:
-
-server_s>$ ./server_s 9800 `pwd`/../docroot `pwd`/log.txt
-
-All programs assume newlines are \n and not \r\n.
-
-

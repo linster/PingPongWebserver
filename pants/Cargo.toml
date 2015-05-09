@@ -1,0 +1,4 @@
+[package]
+name = "pants"
+version = "0.1.0"
+authors = ["Grant Hunter <gr@nt-hunter.ca>"]
