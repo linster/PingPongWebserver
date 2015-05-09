@@ -1,16 +1,17 @@
 use std::net;
 
-struct Listner{
+struct Listener{
     clientAddr: net::SocketAddr,
-    reqType: str,
-    reqFile: str,
-    httpProto: str,
-    userAgent: str,
-    rawReq: str,
+    reqType: String,
+    reqFile: String,
+    httpProto: String,
+    userAgent: String,
+    rawReq: String,
 }
 
-impl Listner {
-    fn listen () {
-        
+impl Listener {
+    
+    fn listen (self) {
+       
     }
 }
