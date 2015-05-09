@@ -1,0 +1,64 @@
+/* CMPUT 379: ASG 2
+ * Stefan Martynkiw 
+ * 1296154
+ */
+
+
+Question 0 
+===========
+I found the fork server the easiest to implement. I wrote all of my HTTP 
+response-building logic in a separate file (request_handler.c) and added 
+the "server" part of the assignment using server.c almost verbatim. Since
+I started with this server, the greatest challenge was building the 
+request_handler. I had all sorts of bugs with the log lines (sprintf's 
+last %s overwriting unpredictable parts of the string). 
+
+With server_p, I copied over the request_handler file from server_f. The 
+challenge was then to adapt server_f.c minimally to make  threads instead 
+of processes. I used the concepts of "thread slots" for my threads[] array. 
+To see which slot was used, I had an inUse[] array with booleans. After each
+ accept(), there is a linear search through the inUse array to find an open slot. 
+
+Server_s was the hardest to get my head around. I realized that I needed to add 
+another state to the connections: STATE_READ, STATE_WR_HTTP, STATE_WR_LOG. Since 
+I was pressed for time, I wanted to make the modifications to the request_handler 
+as minimal as possible. To trigger handle_request() into the special 
+"non-write-out-mode" I passed clientsd=80085. This clientsd causes the 
+write_to_sd and logout functions to bypass the write() calls and instead write
+ to a buffer.
+
+
+
+Question 1 
+===========
+Server_f is better used on hardware architectures that have non-standard
+(or limited) support for threading, such as SPARC. On these machines, it 
+would makes sense to use processes instead of threads. Server_f is 
+susceptible to fork bombs. If there are a number of simultaneous requests 
+greater than the maximum value for the datatype used to store process ID's 
+on a system, then the system will be exhausted of process ID's. This leads 
+to the blocking the creation of new processes and crashing.
+
+Server_p is advantageous to server_f because there is a potentially 
+limitless amount of threads that could be run. Depending on the threading 
+model (1:1, 1:many, many:many mappings of kernel threads to user threads), 
+the operating system can adaptively allocate threads so that exhaustion
+of threads is unlikely. Server_p more semantically communicates the 
+developer's intention in creating subtasks in the webserver: The OS scheduler
+knows that the developer wants to to write one webserver that services multiple
+ requests, not many webservers that service one request.
+
+
+Question 2 
+==========
+Server_p is more advantageous for large numbers of connections. The suggested
+design of Server_s has a naive scheduling algorithm that linearly traverses the
+lists of available tasks. With server_p, we can abstract the scheduling of 
+sub-threads to the Operating System and focus mainly on the functionality of 
+the code instead of the book-keeping of scheduling reads/writes.
+
+Server_s is advantageous because it can be run on systems without threading 
+support entirely. The basic design of server_s is ideal for embedded systems 
+where the overhead for threads is a large portion of the available memory in 
+the system. (Consider ContikiOS, designed to be run on embedded system with 
+1kb of ram).  

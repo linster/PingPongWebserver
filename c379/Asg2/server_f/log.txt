@@ -1,0 +1,52 @@
+Wed Mar  5 19:38:54 2014 GMT	0.0.0.0	GET test.html HTTP/1.1
+	404 Not Found
+Wed Mar  5 19:39:28 2014 GMT	0.0.0.0	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Wed Mar  5 19:56:54 2014 GMT	0.0.0.0	GET /test.html HTTP/1.1	200 OK 196/196 
+Wed Mar  5 19:57:29 2014 GMT	0.0.0.0	GET 404 HTTP/1.1	404 Not Found
+Wed Mar  5 20:00:02 2014 GMT	0.0.0.0	GET 404 HTTP/1.1
+	404 Not Found
+Wed Mar  5 20:02:56 2014 GMT	0.0.0.0	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Wed Mar  5 20:03:19 2014 GMT	0.0.0.0	GET test.html HTTP/1.1
+	404 Not Found
+Wed Mar  5 20:03:31 2014 GMT	0.0.0.0	GET test.html HTTP/1.1
+	404 Not Found
+Fri Mar  7 19:39:58 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 19:40:02 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 19:40:06 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 19:40:10 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 22:37:27 2014 GMT	127.0.0.1	GET /forbidden.html HTTP/1.1
+	403 Forbidden
+Fri Mar  7 22:37:37 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 22:37:48 2014 GMT	127.0.0.1	sdfsdf
+	400 Bad Request
+Fri Mar  7 22:37:51 2014 GMT	127.0.0.1	sdfsdf
+	400 Bad Request
+Fri Mar  7 22:38:02 2014 GMT	127.0.0.1	GET /desired_file.html HTTP/1.1
+	404 Not Found
+Fri Mar  7 22:38:40 2014 GMT	127.0.0.1	GET /desired_file.html HTTP/1.1
+	404 Not Found
+Fri Mar  7 22:43:01 2014 GMT	127.0.0.1	GET /big.html HTTP/1.1
+	200 OK 69875/69875 
+Fri Mar  7 22:44:01 2014 GMT	127.0.0.1	GET /big.html HTTP/1.1
+	200 OK 1884001/1884001 
+Fri Mar  7 22:49:28 2014 GMT	127.0.0.1	ÿôÿý
+	400 Bad Request
+Fri Mar  7 22:49:39 2014 GMT	127.0.0.1	G
+	400 Bad Request
+Fri Mar  7 22:49:49 2014 GMT	127.0.0.1	
+	400 Bad Request
+Fri Mar  7 22:49:59 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 22:50:20 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 22:50:50 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 
+Fri Mar  7 22:51:07 2014 GMT	127.0.0.1	GET /test.html HTTP/1.1
+	200 OK 196/196 

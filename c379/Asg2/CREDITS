@@ -1,0 +1,12 @@
+Code adapted from Bob Beck's examples, (c) 2008 Bob Beck.
+
+Tester.sh from Emil Wyrod on the discussion board.
+
+Request_handler.c/.h by Stefan Martynkiw.
+
+
+COMPUTING SCIENCE HEADER STRING
+/* CMPUT 379 -- ASG 2
+ * Stefan Martynkiw, 1296154
+ * March 7, 2014
+ */
