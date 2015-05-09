@@ -25,6 +25,17 @@ enum HTTPresponses {
 
 struct Request {
     client_addr: std::net::SocketAddr,
-    req_str: String, //Entire HTTP request.
+    req_str: str, //Entire HTTP request.
+}
+
+
+fn ParseRequest(req: &str) {
+// http://bofh.srv.ualberta.ca/beck/c379/asg2_p.html
+// Our server will have the following format:
+// GET /somepath _<space>_ HTTP/1.1
+//
+
+let req_str = String::from_str(str);
+
 }
 
