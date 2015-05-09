@@ -1,4 +1,8 @@
 [package]
 name = "pants"
 version = "0.1.0"
-authors = ["Grant Hunter <gr@nt-hunter.ca>"]
+authors = ["Grant Hunter <gr@nt-hunter.ca>", "Stefan Martynkiw <linster247@gmail.com"]
+
+
+[dependencies.threadpool]
+git = "https://github.com/rust-lang/threadpool.git"
