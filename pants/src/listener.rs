@@ -22,15 +22,15 @@ impl Listener {
     }
     
     
-    fn ParseRequestStr(self, req_str: str) {
+    fn ParseRequestStr(self, req_str: &str) {
         //Populate the fields of the listener struct
         //http://www.trevisrothwell.com/2015/01/string-tokenization-in-rust/
         //Now StrExt doesn't exist. Part of std:str 
         
-        let mut term = str::Split(req_str, " ");
+        let mut term = req_str.ToString.Split(" ");
         
         loop { //Works only if path isn't missing
-            match term.next() {
+            match term.next().as_ref() {
                 "GET" => {self.reqType = "GET"},
                 path @ _ => {self.reqFile = path},
                 "HTTP /1.1" => {self.httpProto = "HTTP /1.1"}
