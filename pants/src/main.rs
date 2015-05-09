@@ -1,29 +1,36 @@
-extern crate threadpool;
+use std::net::{TcpListener, TcpStream};
+use std::thread;
 
-use threadpool::ThreadPool;
-
-
+mod listener;
 
 
 fn main() {
-    const MAX_THREADS: usize = 10;
     
+     const TCP_ADDR: &'static str = "127.0.0.1:8080";
     //create input pool
-    let pool = ThreadPool::new(MAX_THREADS);
     
-    for i in 0..5 {
-        println!("{}",i);
-        pool.execute(move || print(i));
+    
+    let listener = TcpListener::bind(TCP_ADDR).unwrap();
+    
+    for stream in listener.incoming(){
+        match stream {
+            Ok(stream) => {
+                thread::spawn(move|| {
+                        
+                });
+            }
+            Err(e) => {
+                println!("{}", e);
+            }
+        }
     }
+    
     
     //create output threads
 
     
-    loop {
-        
-    }
 }
 
-fn print(i:u32){
-    println!("hello world! {}", i);
+fn print(){
+    println!("hello world!");
 }
