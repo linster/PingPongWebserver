@@ -11,6 +11,11 @@ struct Listener{
 }
 
 impl Listener {
+    pub fn new (stream: net::TcpStream ) -> Listener{
+        let mut tcpString: String;
+        let result = stream.read_to_string(tcpString);
+        println!("{}", tcpString);
+    }
     
     fn listen (self) {
        
