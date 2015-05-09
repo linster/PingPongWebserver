@@ -1,7 +1,9 @@
+use std::io::Read;
 use std::net;
 use std::str;
+use std::string;
 
-struct Listener{
+pub struct Listener{
     clientAddr: net::SocketAddr,
     reqType: String,
     reqFile: String,
@@ -11,10 +13,12 @@ struct Listener{
 }
 
 impl Listener {
-    pub fn new (stream: net::TcpStream ) -> Listener{
-        let mut tcpString: String;
-        let result = stream.read_to_string(tcpString);
+    pub fn new (mut stream: net::TcpStream ){
+        let mut tcpString: String = String::new();
+        stream.read_to_string(&mut tcpString);
+        
         println!("{}", tcpString);
+
     }
     
     fn listen (self) {
