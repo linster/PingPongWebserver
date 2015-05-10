@@ -1,9 +1,8 @@
-use std::net::{TcpListener, TcpStream};
+use std::net::TcpListener;
 use std::thread;
-use std::io::prelude::*;
-use listener::Listener;
+use request::Request;
 
-mod listener;
+mod request;
 
 
 fn main() {
@@ -18,12 +17,12 @@ fn main() {
         match stream {
             Ok(stream) => {
                 thread::spawn(move|| {
-                     let mut stream = stream;
-                     let listen = Listener::new(stream); 
+                     let req = Request::new(stream); 
+                     println!("{}", req.client_addr)
                 });
             }
             Err(e) => {
-                println!("{}", e);
+                println!("thread {}", e);
             }
         }
     }
